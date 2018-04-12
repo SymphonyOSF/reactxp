@@ -226,7 +226,8 @@ export class VirtualListCell extends RX.Component<VirtualListCellProps, null> {
     }
 
     setIsOnScreen(isOnScreen: boolean) {
-        if (isOnScreen !== this._isOnScreen && typeof this.props.item.onScreenChanged === 'function') {
+        if (isOnScreen !== this._isOnScreen && this.props.item && 
+            typeof this.props.item.onScreenChanged === 'function') {
             this._isOnScreen = isOnScreen;
             this.props.item.onScreenChanged(isOnScreen);
         }
